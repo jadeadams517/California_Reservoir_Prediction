@@ -30,22 +30,27 @@ Additionally, to understand the current state of research into California's rese
 We pull from two different online data query sources sources: one for reservoir-specific data and one for precipitation data. Water years instead of calendar years are used as precipitation totals and seasonality are best reflected. So each year runs from the beginning of October to the end of the following September.
 We are using the 1990 water year onwards until the end of the 2021 season , so each pull is from October 1st 1989 until September 30th, 2020.
 
-The reservoir data can all be pulled from the US Bureau of Reclamation's Reclamation Information Sharing Environment:
+Most of the reservoir data can be pulled from the US Bureau of Reclamation's Reclamation Information Sharing Environment:
 https://data.usbr.gov/catalog/
 
 You search the name of the lake in question, then you can pull specific data. Storage data is labeled as 'Storage-af Time Series Data'. Evaporation data,
-which we use to model temperature, is labeled 'Evaporation-cfs Time Series', the mean cubic feet per second of evaporation each day. I only used evaporation data for Folsom Lake as I determined that exogenous variables weren't useful. The lakes data I queried and used were:
+which we use to model temperature, is labeled 'Evaporation-cfs Time Series', the mean cubic feet per second of evaporation each day. I only used evaporation data for Folsom Lake as I determined that exogenous variables weren't useful. The lakes data I queried and used from the RISE databse waswere:
 -New Melones
 -Trinity
 -Shasta
--Don Pedro
--Exchequer
--Pine Flat
+
 -Millerton
 -Berryasa
 -Oroville
 
+The rest of the major reservoirs can be found on the California Data Exchange Center's website at the link below.
+http://cdec4gov.water.ca.gov/dynamicapp/wsSensorData
 
+You have to know the sensor index abbreviation in order to find them so I've listed them here: 
+-Don Pedro: DNP
+-Oroville : ORO
+-Exchequer: EXC
+-Pine Flat: PNF
 Meanwhile, the precipitation data is also easier queried but exists in an outdated format. The California Data Exchange Center's website has a water year query section at thelink below. I typed in each index, 5SI for the Southern Sierra Index - San Joaquin Watershed, and 8SI for the . I used monthly data as I aggregrated up into 12 seasonal periods to make the data digestible for modelling; however, daily is also available in the drop-down menu.
 
 http://cdec4gov.water.ca.gov/dynamicapp/QueryWY
