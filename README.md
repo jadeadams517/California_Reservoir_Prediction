@@ -1,4 +1,4 @@
-# Can machine learning ...
+# Can machine learning play a role in predicting reservoir storage?
 
 ![Folsom near its lowest all-time level during the catastrophic 2012-2015 drought](images/FolsomMain.jpeg?raw=true)
 
