@@ -8,12 +8,14 @@ The goal of my project was to investigate how machine learning could assist in r
 
 Within the past two decades, data science has made many breakthroughs in water level prediction across the world. That being said, California's long-term prediction systems are still hard-inputted from water data halfway through the rain year. I wanted to see if there was potential in long-term system prediction storage. (That being said one standout of California's water engineering is its use of machine learning for short-term flood control predictions- crucial for preventing events like the Oroville Dam failing in 2017 from heavy rains)
 
-As incorporating exogenous variables quickly proved to be weaker than a seasonal, auto-regressive endogenous model, once the data was adjusted it became a clear mater of a grid search to find the best SARIMA model.
 
 ## Results
 
+As incorporating exogenous variables quickly proved to be weaker than a seasonal, auto-regressive endogenous model, once the data was adjusted it became a clear matter of a grid search to find the best SARIMA model on my training lake of Folsom Lake. I then tested the grid-searched SARIMA across all other reservoirs, using the evaluation statistics of correlation coefficient and the mean error from the true value, and recorded the results at the bottom of my project notebook.
+
 ## Conclusion
 
+I found that some reservoirs didn't have the same accuracy using Folsom Lake's SARIMA model. I believe that modelling inflow data, using variables that cover different outflow needs, and incorporating long-term weather patterns that predict rain, such as the El Nino & La Nina cycle, will help create more accurate reservoir modelling. This will require creating new classes beyond currently available libraries.
 
 
 ## Research Resources
@@ -38,7 +40,6 @@ which we use to model temperature, is labeled 'Evaporation-cfs Time Series', the
 -New Melones
 -Trinity
 -Shasta
-
 -Millerton
 -Berryasa
 -Oroville
@@ -49,7 +50,7 @@ http://cdec4gov.water.ca.gov/dynamicapp/wsSensorData
 You have to know the sensor index abbreviation in order to find them so I've listed them here: 
 -Don Pedro: DNP
 -Oroville : ORO
--Exchequer: EXC
+-Mcclure: EXC
 -Pine Flat: PNF
 Meanwhile, the precipitation data is also easier queried but exists in an outdated format. The California Data Exchange Center's website has a water year query section at thelink below. I typed in each index, 5SI for the Southern Sierra Index - San Joaquin Watershed, and 8SI for the . I used monthly data as I aggregrated up into 12 seasonal periods to make the data digestible for modelling; however, daily is also available in the drop-down menu.
 
@@ -58,5 +59,21 @@ http://cdec4gov.water.ca.gov/dynamicapp/QueryWY
 ## Repository Structure
 
 ```
-nice repo dets
+Folders
+
+data: storage and reservoir data
+->archive: NOAA weather data for Folsom Lake
+->folsomlake: Folsom Lake data used in final project
+->otherlakes: all other reservoirs
+5SI.csv - > Southern Sierras precipitation data
+8SI.csv -> Northern Sierras precipitation data
+
+images: notebook and readme images
+workbooks: archived, initial modelling and idea mapping
+
+Files
+California Reservoir Prediction: pdf project presentation
+final_notebook: the full project notebook
+.gitignore: cleans commits
+environment.yml: recreatable environment, list code and library versions used
 ```
